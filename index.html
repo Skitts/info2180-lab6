@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+    <head>
+ 
+    </head>
+    <body>
+        
+        
+     <button id="button" type="button">Search</button>
+    <!--<input id= "word" type ="text"> -->
+     <button id="allDefinition" type="button">Get All Definitions</button>
+        
+        <script>
+        window.onload function(){
+            var httpRequest;
+            document.getElementById("button").onclick = function()
+            {Search('request.php');
+                
+        
+        if (window.xMLHttpRequest){
+            httpRequest = new xMLHttpRequest();
+        }
+        else if (window.ActiveObject) {
+             httpRequest = new ActiveObject ("Microsoft.xMLHTTP");
+        };
+        
+      /*  httpRequest.onreadystatechange = function() {
+            if (httpRequest.readyState == wxMLHttpRequest.DONE){
+                if (httpRequest.status == 200){
+        
+       function Search(word)
+            { 
+            httpRequest = new xMLHttpRequest();
+            httpRequest.onreadystatechange = alertContents;
+            httpRequest.open('GET', word);
+            httpRequest.send();
+            
+            }
+    */
+    
+                 function alertContents() {
+                    if (httpRequest.readyState === xMLHttpRequest.DONE) {
+                        if (httpRequest.status === 200) {
+                                alert(httpRequest.responseText);
+                                    } else {
+                                        alert('Your request could not be processed');
+                                         }
+                                         
+                                         
+                                         
+                                         
+                                         
+                                         
+        document.getElementById("allDefinition").addEventListener("click",function(){
+           var httpRequest;
+           if (window.xMLHttpRequest) { 
+              httpRequest = new xmlHttpRequest();
+           }
+           
+         httpRequest.onreadystatechange = function()
+         /*{
+            if (httpRequest.readyState == xMLHttpRequest.DONE){
+                if (httpRequest.status == 200){
+                    
+                    var wordBank = http.responsextML;
+                    wordBank= open($dictionary, word);
+                    
+                    var words=wordBank.read();
+                    
+                    console.log(getElementById("word").length);
+                    if words in wordBank{
+                        console.log(word).append(word)
+                    }
+                    else 
+                    {
+                        alert('Request could not be made');
+                    };
+                };
+            };
+    
+        } */
+              console.log(getElementsByTagName("definition").length); //the name of the database file that stores all definition 
+                 var wordInput;
+                for(var i=0; i<3; i++){
+                   
+                  wordInput += "<li> <h3>" + data.getElementsByTagName("definition")[i].getAttribute('name')+ /n
+                  
+                 "</h3> <p>" + data.getElementsByTagName("definition")[i].childNodes[0].nodeValue + "</p> /n <p>" +  data.getElementsByTagName("definition")[i].getAttribute('author') + "</p></li>";
+                }
+                
+                
+                 console.log(httpRequest.responseXML);
+                 document.getElementById("reply").innerHTML = "<ol>" + wordInput + "</ol>";
+           
+                } else {
+                  alert('There seems to be an error, your response could not be processed');
+                }
+               
+           };
+        }; 
+        
+        
+        
+      }
+      
+httpRequest.open('GET','https://info2180-lab6-skitts.c9users.io/request.php?q=$all=true');
+xmlhttpRequest.send(null);
+
+
+</script>
+        
+        
+       <label>Word: 
+          <input type="text" id="ajaxtTextbox" />
+        </label>
+        
+        <span id="ajaxButton" style="cursor: pointer; text-decoration: underline">
+  Make a request
+</span>
+
+        <div id= "result"> 
+        <li>
+            <ul>ajax</ul>
+            <ul>definition</ul>
+            <ul>bar</ul>
+            <ul>html</ul>
+            <ul>css</ul>
+            <ul>php</ul>
+        </li>
+        </div>
+    
+    <script>
+    
+          document.getElementById("ajaxButton").onclick = function()
+          { 
+          var userName = document.getElementById("ajaxTextbox").value;
+          makeRequest('request.php',userName); 
+          };
+    
+    </script>
+    
+    
+</body>
+</html>
